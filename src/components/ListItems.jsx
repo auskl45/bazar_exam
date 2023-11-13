@@ -1,5 +1,6 @@
 import {productsData} from "../data/products";
 import { useNavigate } from 'react-router-dom'
+import Rating from "./Rating";
 
 const ListItems = () => {
   const navigate = useNavigate();
@@ -25,8 +26,6 @@ const ListItems = () => {
             </button>
           </div>
         </div>
-
-
         {productsData.products.map(product => (
         <div key={product.id}>
           <ul className="list-group">
@@ -39,6 +38,9 @@ const ListItems = () => {
         <h5>{product.title}</h5>
         <p>{product.description}</p>
         <p><b>${product.price}</b></p>
+
+        <Rating value={product.rating} />
+
 </div>  
       </div>
   </div>
