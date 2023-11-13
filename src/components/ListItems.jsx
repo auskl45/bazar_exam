@@ -1,10 +1,15 @@
 import {productsData} from "../data/products";
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 import Rating from "./Rating";
+import { Link } from 'react-router-dom'
 
 const ListItems = () => {
-  const navigate = useNavigate();
-
+//  const navigate = useNavigate();
+  const navigateToItem = (userId) => {
+    <div>
+    <Link to={`/item/${userId}`}>Usuario {userId}</Link><br />
+    </div>
+  };
   console.log(productsData.products)
   return (
     <div className="container">
@@ -26,10 +31,12 @@ const ListItems = () => {
             </button>
           </div>
         </div>
+
         {productsData.products.map(product => (
         <div key={product.id}>
+                  <Link to={`/item/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
           <ul className="list-group">
-  <div className="list-group-item" onClick={() => {navigate('/item') }}>
+          <div className="list-group-item" onClick={() => navigateToItem(product.id)}>
     <div className="row">
       <div className="col-2">
       <img src={product.images[0]} width="80" height="80"/>
@@ -45,7 +52,7 @@ const ListItems = () => {
       </div>
   </div>
 </ul>
-          {/* <h2>{product.title}</h2> */}
+</Link>
         </div>
       ))}
     </div>

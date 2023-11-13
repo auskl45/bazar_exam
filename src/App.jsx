@@ -9,10 +9,10 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="listemItems" element={<ListItems/>} />
-      <Route path="item" element={<Item/>} />
-      {/* <Route path="users" element={<Users/>} />
-      <Route path="/redirect" element={<Navigate replace to="/users" />} />
-      <Route path="user/:id" element={<UserPage/>} /> */}
+      {/* <Route path="item" element={<Item/>} /> */}
+       {/* <Route path="users" element={<Users/>} />
+      <Route path="/redirect" element={<Navigate replace to="/users" />} /> */}
+      <Route path="item/:id" element={<Item/>} /> 
 
       {/* <Route path="dashboard/*" element={<Dashboard/>} >
         <Route path="wellcome" element={<h3>Wellcome!!</h3>} />
