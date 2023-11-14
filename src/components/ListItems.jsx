@@ -18,9 +18,7 @@ const ListItems = () => {
     <>
       <Navbar />
       <div className="container col-5">
-
                    <SearchBar />
-
         {productosData.map(product => (
         <div key={product.id}>
                   <Link to={`/item/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
