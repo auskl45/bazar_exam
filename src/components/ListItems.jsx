@@ -25,10 +25,10 @@ const ListItems = () => {
           <ul className="list-group">
           <div className="list-group-item" onClick={() => navigateToItem(product.id)}>
     <div className="row">
-      <div className="col-2">
+      <div className="col-3">
       <img src={product.images[0]} width="100" height="100"/>
       </div>
-      <div className="col-10">
+      <div className="col-9">
         <h5>{product.title}</h5>
         <p>{product.description}</p>
         <p><b>${product.price}</b></p>
