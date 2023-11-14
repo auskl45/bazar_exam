@@ -1,5 +1,5 @@
-import StarIcon from '@mui/icons-material/Star';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import React from "react";
+import { FaStar, FaStarHalf } from "react-icons/fa";
 
 const Rating = (props) => {
   const { value } = props;
@@ -11,22 +11,25 @@ const Rating = (props) => {
   // Crea un array con estrellas llenas hasta la parte entera
   const ratingArr = Array(intValue).fill(true);
 
+  // Agrega una estrella media si hay un valor decimal mayor a 0
   if (decimalValue > 0) {
-    ratingArr.push(decimalValue);
+    ratingArr.push("half");
   }
 
+  // Completa el array con estrellas vacías hasta llegar a 5
   while (ratingArr.length < 5) {
     ratingArr.push(false);
   }
 
   return (
-    <div className="Rating">
-      {ratingArr.map((isFilled, index) => (
-        isFilled ? (
-          // Si es una estrella parcial, muestra una porción de la estrella
-          <StarIcon key={index} style={index === intValue ? { clipPath: `polygon(0 0, ${decimalValue * 100}% 0, ${decimalValue * 100}% 100%, 0 100%)` } : {}} />
+    <div style={{ display: "flex", alignItems: "center", color: "gold" }}>
+      {ratingArr.map((item, index) => (
+        item === true ? (
+          <FaStar key={index} />
+        ) : item === "half" ? (
+          <FaStarHalf key={index} />
         ) : (
-          <StarOutlineIcon key={index} />
+          <FaStar key={index} style={{ opacity: 0.5 }} />
         )
       ))}
     </div>
